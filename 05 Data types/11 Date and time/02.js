@@ -1,5 +1,2 @@
-const getWeekDay = (date) => {
-  const days = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'];
-
-  return days[date.getDay()];
-};
+const getWeekDay = (date) =>
+  ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'][date.getDay()];

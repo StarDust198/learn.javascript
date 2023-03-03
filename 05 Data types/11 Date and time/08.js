@@ -1,24 +1,20 @@
 const formatDate = (date) => {
-  const timePassed = new Date() - date;
+  const diff = Date.now() - date;
 
-  if (timePassed < 1000) {
+  if (diff < 1000) {
     return 'right now';
-  } else if (timePassed < 60 * 1000) {
-    return `${Math.floor(timePassed / 1000)} sec. ago`;
-  } else if (timePassed < 60 * 1000 * 24) {
-    return `${Math.floor(timePassed / (60 * 1000))} min. ago`;
+  } else if (diff < 1000 * 60) {
+    return `${Math.round(diff / 1000)} sec. ago`;
+  } else if (diff < 1000 * 60 * 60) {
+    return `${Math.round(diff / 1000 / 60)} min. ago`;
   }
+  const getZero = (num) => (num < 10 ? '0' + num : '' + num);
 
-  const getZero = (n) => (n < 10 ? `0${n}` : (n + '').slice(-2));
+  let year = date.getFullYear() % 100;
+  let month = getZero(date.getMonth() + 1);
+  let day = getZero(date.getDate());
+  let hours = getZero(date.getHours());
+  let minutes = getZero(date.getMinutes());
 
-  const year = date.getFullYear();
-  const month = date.getMonth();
-  const day = date.getDate();
-  const hours = date.getHours();
-  const minutes = date.getMinutes();
-  const seconds = date.getSeconds();
-
-  return `${getZero(day)}.${getZero(month + 1)}.${getZero(year)} ${getZero(
-    hours
-  )}:${getZero(minutes)}`;
+  return `${[day, month, year].join('.')} ${[hours, minutes].join(':')}`;
 };

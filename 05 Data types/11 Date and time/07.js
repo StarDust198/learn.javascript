@@ -1,7 +1,7 @@
-const getSecondsToTomorrow = (date) => {
-  const tomorrow = new Date(date).setDate(date.getDate() + 1);
+const getSecondsToTomorrow = () => {
+  const d = new Date();
 
   return Math.round(
-    (new Date(new Date(tomorrow).toDateString()) - new Date()) / 1000
+    (new Date(d.getFullYear(), d.getMonth(), d.getDate() + 1) - d) / 1000
   );
 };

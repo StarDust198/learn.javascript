@@ -1,2 +1,2 @@
 const getSecondsToday = () =>
-  Math.round((new Date() - new Date(new Date().toDateString())) / 1000);
+  Math.round((Date.now() - new Date(new Date().toDateString())) / 1000);
