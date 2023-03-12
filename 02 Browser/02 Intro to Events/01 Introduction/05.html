@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <div id="title">
+      <span id="side">▶</span> <span id="down">▼</span> Sweeties (click me)!
+    </div>
+    <ul id="list">
+      <li>Cake</li>
+      <li>Donut</li>
+      <li>Honey</li>
+    </ul>
+
+    <script>
+      side.style.color = 'green';
+      down.style.display = 'none';
+      down.style.color = 'green';
+      list.style.display = 'none';
+      list.style.listStyle = 'none';
+
+      let openState = false;
+
+      title.addEventListener('click', () => {
+        if (openState) {
+          openState = false;
+          side.style.display = 'none';
+          down.style.display = 'inline';
+          list.style.display = 'block';
+        } else {
+          openState = true;
+          side.style.display = 'inline';
+          down.style.display = 'none';
+          list.style.display = 'none';
+        }
+      });
+    </script>
+  </body>
+</html>
